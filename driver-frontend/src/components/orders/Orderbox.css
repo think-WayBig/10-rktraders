@@ -1,0 +1,110 @@
+.order-con {
+    padding: 20px;
+}
+
+.order-con>div {
+    padding: 10px 20px;
+    border: 1px solid rgb(0, 162, 255);
+    width: 250px;
+    border-radius: 12px;
+}
+
+.order-con>div h4 {
+    margin: 0;
+    margin-top: 10px;
+    text-align: right;
+    color: rgb(100, 100, 100);
+}
+
+.order-con>div h2 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+.order-con>div ol {
+    padding-left: 25px;
+}
+
+.order-con>div li {
+    /* margin-left: 20px; */
+    margin-bottom: 7px;
+}
+
+.order-con>div span {
+    opacity: 0.8;
+}
+
+.verification {
+    padding-left: 10px;
+    margin-bottom: 10px;
+}
+
+.verification>input {
+    padding: 6px;
+    padding-left: 10px;
+    font-size: 14.5px;
+    margin: 5px 0;
+    width: 215px;
+}
+
+.verification div {
+    padding-top: 5px;
+    display: flex;
+}
+
+.verification div input {
+    width: 130px;
+    padding-left: 10px;
+    font-size: 14px;
+}
+
+.verification div textarea {
+    padding: 5px 10px;
+    font-size: 15px;
+    font-weight: 400;
+    font-family: inherit;
+}
+
+.verification button {
+    padding: 7px 18px;
+    background-color: rgb(216, 237, 255);
+    cursor: pointer;
+    color: rgb(27, 27, 27);
+    border: none;
+    width: 100%;
+}
+
+.lastli {
+    margin-bottom: 20px !important;
+}
+
+.verifyBtn {
+    padding: 8px 10px;
+    background-color: rgb(216, 237, 255);
+    color: rgb(31, 31, 31);
+    margin-top: 30px;
+    /* font-weight: 500; */
+    border-radius: 5px;
+}
+
+.verifyBtn i {
+    color: rgb(71, 71, 71);
+    font-size: 17px;
+    font-weight: 100;
+    margin-left: 10px;
+}
+
+@media (max-width: 350px) {
+    .order-con {
+        padding: 15px 0px;
+    }
+
+    .order-con>div {
+        padding: 15px;
+    }
+
+    .verification button {
+        padding: 8px 10px;
+    }
+}

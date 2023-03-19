@@ -1,0 +1,12 @@
+summary::marker {
+    color: rgb(68, 68, 68);
+}
+
+summary {
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+ul {
+    padding-left: 40px;
+}

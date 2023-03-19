@@ -1,0 +1,50 @@
+.home-con {
+    padding: 50px 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 30px;
+}
+
+.home-con div {
+    width: 300px;
+    height: 300px;
+    font-size: 22px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding: 50px;
+    box-sizing: border-box;
+
+    background-color: aliceblue;
+    box-shadow: 0 0 12px rgba(138, 138, 138, 0.205);
+    transition: 0.3s;
+    border-radius: 12px;
+}
+
+.home-con div:hover {
+    background-color: rgb(213, 234, 254);
+}
+
+.home-con div span {
+    font-size: 18px;
+    margin-top: 8px;
+}
+
+.home-con a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.home-con #addBill {
+    cursor: pointer;
+}
+
+@media (max-width: 730px) {
+    .home-con {
+        padding-bottom: 180px;
+    }
+}

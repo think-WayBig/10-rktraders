@@ -1,0 +1,75 @@
+.navbar {
+    padding: 0px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(216, 237, 255);
+    border-bottom: 1px solid rgb(110, 178, 255);
+    color: rgb(24, 24, 24);
+}
+
+.navbar div {
+    display: flex;
+    gap: 25px;
+}
+
+.navbar a {
+    color: rgba(0, 0, 0, 0.8);
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.navbar a:hover {
+    color: black;
+    text-decoration: underline;
+}
+
+.navbar a i {
+    margin-right: 7px;
+    color: rgba(0, 0, 0, 0.776);
+    font-size: 17px;
+}
+
+.nav-mobile {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    bottom: 0;
+    width: 100%;
+    background-color: white;
+    border-top: 1px solid rgb(185, 185, 185);
+    padding: 10px 10px;
+}
+
+.nav-mobile div a {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    zoom: 0.9;
+
+    color: rgba(0, 0, 0, 0.8);
+    font-size: 14px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.nav-mobile div i {
+    margin: auto;
+    font-size: 28px;
+}
+
+@media (max-width: 730px) {
+    .navbar {
+        justify-content: center;
+    }
+
+    .navbar div {
+        display: none;
+    }
+
+    .nav-mobile {
+        display: flex;
+        justify-content: center;
+        gap: 35px;
+    }
+}
