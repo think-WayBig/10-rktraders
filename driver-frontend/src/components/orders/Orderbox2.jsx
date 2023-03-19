@@ -16,7 +16,7 @@ function Orderbox(props) {
       return;
     }
 
-    let response = await axios.get("https://sms-api2.vercel.app/sendSms", {
+    let response = await axios.get("https://rktraders-sms-api.vercel.app/sendSms", {
       params: {
         "number": number,
         "message": otp + "\nOrder ID: " + props.id + "\nName: " + props.name + "\n" + "Amount: " + props.price,
