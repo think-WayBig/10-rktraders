@@ -147,29 +147,35 @@ function Home() {
   }
 
   return (
-    <div className='home-con'>
-      <Link to="/orders">
-        <div>
-          Check Orders
-          <span>Current: {vouchersPending.length}</span>
-        </div>
-      </Link>
-      {/* <Link to="/new">
+    <>
+      <section>
+        <h1>Welcome Admin</h1>
+        <h4>Here's what you can do with this app.</h4>
+      </section>
+      <div className='home-con'>
+        <Link to="/orders">
+          <div>
+            Check Orders
+            <span>Current: {vouchersPending.length}</span>
+          </div>
+        </Link>
+        {/* <Link to="/new">
         <div>
           Generate Bill
         </div>
       </Link> */}
-      <Link to="/archived">
-        <div>
-          Archived Orders
-          <span>Fulfilled: {vouchersArchived.length}</span>
+        <Link to="/archived">
+          <div>
+            Archived Orders
+            <span>Fulfilled: {vouchersArchived.length}</span>
+          </div>
+        </Link>
+        <div id='addBill' onClick={getFile}>
+          Add Bill
+          <input type="file" onChange={handleBill} hidden id="bill" accept='.xml' />
         </div>
-      </Link>
-      <div id='addBill' onClick={getFile}>
-        Add Bill
-        <input type="file" onChange={handleBill} hidden id="bill" accept='.xml' />
       </div>
-    </div>
+    </>
   )
 }
 
