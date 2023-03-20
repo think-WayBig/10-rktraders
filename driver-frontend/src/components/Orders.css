@@ -1,3 +1,52 @@
+nav.filters {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    padding: 30px 20px 15px 20px;
+}
+
+nav.filters button {
+    background-color: white;
+    border: 1px solid rgb(0, 162, 255);
+    border-radius: 5px;
+    padding: 8px 20px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+nav.filters button:hover {
+    background-color: rgb(216, 237, 255);
+}
+
+nav.filters button.active {
+    background-color: rgb(216, 237, 255);
+}
+
+nav.filters > input[type="text"] {
+    text-indent: 20px;
+}
+
+nav.filters > input[type="date"]{
+    background-color: white;
+    padding: 8px 20px;
+    font-size: 14px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid rgb(0, 162, 255);
+}
+
+nav.filters > input[type="date"].active {
+    background-color: rgb(216, 237, 255);
+}
+
+::-webkit-calendar-picker-indicator {
+    background-color: rgb(216, 237, 255);
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
 .orders-con {
     display: flex;
     flex-wrap: wrap;

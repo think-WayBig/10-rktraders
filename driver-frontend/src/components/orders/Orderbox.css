@@ -36,7 +36,7 @@
 }
 
 .verification {
-    padding-left: 10px;
+    /* padding-left: 10px; */
     margin-bottom: 10px;
 }
 
@@ -53,10 +53,14 @@
     display: flex;
 }
 
-.verification div input {
+.verification div input[type="number"] {
     width: 130px;
-    padding-left: 10px;
+    text-indent: 10px;
     font-size: 14px;
+}
+
+.verification .radios {
+    margin-top: 10px;
 }
 
 .verification div textarea {
@@ -67,12 +71,13 @@
 }
 
 .verification button {
-    padding: 7px 18px;
+    padding: 7px 4px;
     background-color: rgb(216, 237, 255);
     cursor: pointer;
     color: rgb(27, 27, 27);
     border: none;
     width: 100%;
+    border: 1px solid black;
 }
 
 .lastli {
