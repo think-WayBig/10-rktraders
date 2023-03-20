@@ -1,8 +1,28 @@
 nav.filters {
+    padding: 30px 20px 15px 20px;
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+nav.filters div {
     display: flex;
     gap: 20px;
     justify-content: center;
-    padding: 30px 20px 15px 20px;
+    width: 750px;
+    box-sizing: border-box;
+}
+
+@media (max-width: 690px) {
+    nav.filters {
+        overflow: scroll;
+        justify-content: left;
+        overflow-y: hidden;
+    }
+
+    nav.filters div {
+        justify-content: left;
+    }
 }
 
 nav.filters button {
@@ -14,6 +34,10 @@ nav.filters button {
     font-size: 14px;
 }
 
+nav.filters button:last-child {
+    width: 145px;
+}
+
 nav.filters button:hover {
     background-color: rgb(216, 237, 255);
 }
@@ -22,11 +46,11 @@ nav.filters button.active {
     background-color: rgb(216, 237, 255);
 }
 
-nav.filters > input[type="text"] {
+nav.filters input[type="text"] {
     text-indent: 20px;
 }
 
-nav.filters > input[type="date"]{
+nav.filters input[type="date"] {
     background-color: white;
     padding: 8px 20px;
     font-size: 14px;
@@ -36,7 +60,7 @@ nav.filters > input[type="date"]{
     border: 1px solid rgb(0, 162, 255);
 }
 
-nav.filters > input[type="date"].active {
+nav.filters input[type="date"].active {
     background-color: rgb(216, 237, 255);
 }
 

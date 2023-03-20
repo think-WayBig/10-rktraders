@@ -104,12 +104,14 @@ function Orders() {
   return (
     <>
       <nav className='filters'>
-        <button className='active' onClick={handleAll}>All</button>
-        <button onClick={handleToday}>Today</button>
-        <button onClick={handleYesterday}>Yesterday</button>
-        {/* <button onClick={handleOlder}>Older</button> */}
-        <input onChange={handleOlder} ref={dateRef} type="date" />
-        <button onClick={handleSorting}>Sort by Date &nbsp;<i style={{ opacity: "0.8" }} className="fa fa-arrow-up"></i></button>
+        <div>
+          <button className='active' onClick={handleAll}>All</button>
+          <button onClick={handleToday}>Today</button>
+          <button onClick={handleYesterday}>Yesterday</button>
+          {/* <button onClick={handleOlder}>Older</button> */}
+          <input onChange={handleOlder} ref={dateRef} type="date" />
+          <button onClick={handleSorting}>Sort by Date &nbsp;<i style={{ opacity: "0.8" }} className="fa fa-arrow-up"></i></button>
+        </div>
       </nav>
       <div className='orders-con'>
         {vouchers.map(voucher => {
