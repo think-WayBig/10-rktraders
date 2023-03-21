@@ -13,7 +13,7 @@ function Orderbox(props) {
   function productsArr(products) {
     let i = 1;
     products.forEach(product => {
-      productsBought += ("*" + i + ".* " + product.Name + ", ");
+      productsBought += ("*" + i + ".* " + product.Name + " - " + product.Qty + " " + product.Unit + "  |  ");
       i++;
     })
   }
@@ -25,7 +25,7 @@ function Orderbox(props) {
     const response = await fetch("https://graph.facebook.com/v15.0/119961407705304/messages", {
       method: "POST",
       headers: {
-        "Authorization": "Bearer EAAIZAnmCbUhoBAE1uC1YmCvcowj7FgQHrZCaGAESeOMC7PmpcrZC53o4BKJ1oCeD8tQdzZAbLpoCu76TGSCGRtVGR8xBwmpeunqNBN1hTlvfSYZAkGfVD1liT4qcP6fwiR57JJKwQZCBFSbpIqZAetKRHEl7LZBSTVOmaXVX2ZBwBMZC4ZAZACnvUMZCCTzWxPedfWkFG8ZAZBQBTk7dgZDZD",
+        "Authorization": "Bearer EAAIZAnmCbUhoBAG3kjdjOhUCaHUlFdZCTewnlyH3HBrXuovZBZAYYq97SnU2k8abl6UT1MaOjtMUDJuXNoh9ywPOkT2ZAUkbPl1MpB5GcBrCZBBzPtsP1OSl7nM0Ff0K0XoZBgf5t9Qjy7AHImRZCbUV8NmThIoco6QQW5FMGrwKG5AQhZAcBUVceu4876CUrNotyoRat0diA7gZDZD",
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
@@ -53,7 +53,7 @@ function Orderbox(props) {
             },
             {
               "type": "text",
-              "text": products
+              "text": products,
             },
             {
               "type": "text",
