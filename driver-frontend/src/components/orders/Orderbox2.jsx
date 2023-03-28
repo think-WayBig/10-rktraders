@@ -22,7 +22,7 @@ function Orderbox(props) {
   // console.log(productsBought)
 
   async function sendWaMsg(number, orderId, partyName, deliveryDate, products, cost) {
-    const response = await fetch("https://graph.facebook.com/v15.0/119961407705304/messages", {
+    const response = await fetch("https://graph.facebook.com/v15.0/111839908529555/messages", {
       method: "POST",
       headers: {
         "Authorization": "Bearer EAAIZAnmCbUhoBAN2WfxXLex4xbnq5ZAZBksmnI7zCMkvvSjBDR30E92Hy6tblU5MZARbO4vqXZAYraVICl8o6nxJZALsh9eaq9ZB9d4J1ZCE8cOzzJnYZBIKL1gDywbuPfsQy6F6Xv10o10OlBNlGNw8g2IG4RsoeviwOZCdIvyZCyQpYvgMbpYW1oN",
@@ -33,7 +33,7 @@ function Orderbox(props) {
         "to": number,
         "type": "template",
         "template": {
-          "name": "rktraders_verify_order_items_details",
+          "name": "rk_traders_2",
           "language": {
             "code": "en"
           },
