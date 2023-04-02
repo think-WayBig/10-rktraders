@@ -5,6 +5,13 @@ import axios from 'axios';
 // var parser = require('xml2json-light');
 // var parser = require('xml2json');
 
+import Button from '@mui/material/Button';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
+
 function Home() {
 
   let [vouchersPending, setVouchersPending] = useState([]);
@@ -146,6 +153,50 @@ function Home() {
     }
   }
 
+  let [popState, setPopState] = useState(false);
+  let handleDeleteBills = () => {
+    setPopState(true);
+  };
+
+  function AlertDialog() {
+    const [open, setOpen] = useState(popState);
+
+    const handleClose = () => {
+      setPopState(false);
+    };
+
+    const handleOk = () => {
+      console.log('ok');
+      window.location.reload();
+    }
+
+    return (
+      <div>
+        <Dialog
+          open={open}
+          onClose={handleClose}
+          aria-labelledby="alert-dialog-title"
+          aria-describedby="alert-dialog-description"
+        >
+          <DialogTitle id="alert-dialog-title">
+            {"Would you like to delete all the bills in the App?"}
+          </DialogTitle>
+          <DialogContent>
+            <DialogContentText id="alert-dialog-description">
+              Caution!! This step is irreversible.
+            </DialogContentText>
+          </DialogContent>
+          <DialogActions>
+            <Button onClick={handleClose}>Cancel</Button>
+            <Button onClick={handleOk} autoFocus>
+              Ok
+            </Button>
+          </DialogActions>
+        </Dialog>
+      </div>
+    );
+  }
+
   return (
     <>
       <section>
@@ -174,7 +225,11 @@ function Home() {
           Add Bill
           <input type="file" onChange={handleBill} hidden id="bill" accept='.xml' />
         </div>
+        <div id='addBill' onClick={handleDeleteBills}>
+          <span><i style={{ fontSize: "28px", marginBottom: "8px", color: "red" }} className='fa fa-exclamation-triangle'></i></span> Delete Pending Bills
+        </div>
       </div>
+      <AlertDialog />
     </>
   )
 }

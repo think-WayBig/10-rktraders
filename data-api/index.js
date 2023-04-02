@@ -151,6 +151,26 @@ app.get('/allVouchers', (req, res) => {
     })
 })
 
+app.delete('/deleteAllVouchers', async (req, res) => {
+    try {
+        const result = await NewData.deleteMany({ DeliveryStatus: 'pending' });
+        res.status(200).json({ message: `Deleted ${result.deletedCount} documents` });
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ message: 'Internal server error' });
+    }
+});
+
+app.delete('/deleteVoucher', async (req, res) => {
+    try {
+        const result = await NewData.findOneAndDelete({ VchNo: req.body.id });
+        res.status(200).json({ message: `Deleted Successfully` });
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ message: 'Internal server error' });
+    }
+});
+
 let PORT = 5000;
 
 app.listen(PORT, () => { console.log('API Running Successfully', `http://localhost:${PORT}`) });

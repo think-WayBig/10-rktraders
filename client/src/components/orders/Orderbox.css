@@ -113,3 +113,17 @@
         padding: 8px 10px;
     }
 }
+
+.delBtn {
+    padding: 3px 30px;
+    background-color: rgb(216, 237, 255);
+    border: none;
+    cursor: pointer;
+    border: 1px solid rgb(148, 205, 255);
+    transition: 0.3s;
+}
+
+.delBtn:hover {
+    background-color: rgb(255, 53, 53);
+    color: white;
+}
