@@ -50,7 +50,7 @@ function Home() {
         <Link to="/orders">
           <div>
             Pending Orders
-            <span>Current: {vouchersPending.length}</span>
+            <span>Pending: {vouchersPending.length}</span>
           </div>
         </Link>
         {/* <Link to="/new">
@@ -61,7 +61,7 @@ function Home() {
         <Link to="/archived">
           <div>
             Archived Orders
-            <span>Fulfilled: {vouchersArchived.length}</span>
+            <span>Delivered: {vouchersArchived.length}</span>
           </div>
         </Link>
         <Link onClick={handleLogout} to="/">

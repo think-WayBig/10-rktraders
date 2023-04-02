@@ -162,8 +162,8 @@ function Orderbox(props) {
           </div>
           <div className='radios'>
             <button onClick={() => setRemarks("No Shortage")}>No Shortage</button>
-            <button onClick={() => setRemarks("Option 2")} style={{ borderLeft: "none" }}>Option 2</button>
-            <button onClick={() => setRemarks("Option 3")} style={{ borderLeft: "none" }}>Option 3</button>
+            <button onClick={() => setRemarks("Missing Item Number : ")} style={{ borderLeft: "none" }}>Missing Item</button>
+            {/* <button onClick={() => setRemarks("Option 3")} style={{ borderLeft: "none" }}>Option 3</button> */}
           </div>
           <div>
             <textarea cols="30" rows="3" value={remarks} onChange={(e) => setRemarks(prev => prev = e.target.value)} placeholder='Any remarks' />

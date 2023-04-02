@@ -39,9 +39,16 @@ function Orders() {
   let handleToday = (e) => {
     let objectDate = new Date();
     let day = objectDate.getDate();
-    let month = objectDate.getMonth();
+    if (day < 10) {
+      day = '0' + day;
+    }
+    let month = objectDate.getMonth() + 1;
+    if (month < 10) {
+      month = '0' + month;
+    }
     let year = objectDate.getFullYear();
-    let date = month + "-" + day + "-" + year;
+    let date = day + "-" + month + "-" + year;
+    // console.log(date);
 
     removeActive();
     e.target.classList.add("active");
@@ -59,11 +66,23 @@ function Orders() {
   let handleYesterday = (e) => {
     let objectDate = new Date();
     let day = objectDate.getDate() - 1;
-    let month = objectDate.getMonth();
+    if (day < 10) {
+      day = '0' + day;
+    }
+    let month = objectDate.getMonth() + 1;
+    if (month < 10) {
+      month = '0' + month;
+    }
     let year = objectDate.getFullYear();
-    let date = month + "-" + day + "-" + year;
+    let date = day + "-" + month + "-" + year;
+    // console.log(date);
+
     removeActive();
     e.target.classList.add("active");
+
+    let setDate = year + "-" + month + "-" + day;
+    dateRef.current.value = setDate;
+
     setVouchers(vouchersFilter.filter(voucher => {
       if (voucher.Date == date) {
         return voucher;
@@ -98,13 +117,36 @@ function Orders() {
 
     setVouchers(vouchersFilter.sort((a, b) => {
       return new Date(a.Date) - new Date(b.Date);
-    }));
+    }).reverse());
   };
+
+  let [searchName, setSearchName] = useState();
+  let [searchVoucher, setSearchVoucher] = useState();
+
+  let handleSearchName = (e) => {
+    setSearchName(prev => prev = e.target.value.toUpperCase())
+    setVouchers(vouchersFilter.filter(voucher => {
+      if (voucher.PartyName.search(searchName) != -1) {
+        return voucher
+      }
+    }))
+  }
+
+  let handleSearchVoucher = (e) => {
+    setSearchVoucher(prev => prev = e.target.value)
+    setVouchers(vouchersFilter.filter(voucher => {
+      if (voucher.VchNo.search(searchVoucher) != -1) {
+        return voucher
+      }
+    }))
+  }
 
   return (
     <>
       <nav className='filters'>
         <div>
+          <input onChange={handleSearchName} value={searchName} type="text" placeholder='Search Name' />
+          <input onChange={handleSearchVoucher} value={searchVoucher} type="text" placeholder='Search Vch Code' />
           <button className='active' onClick={handleAll}>All</button>
           <button onClick={handleToday}>Today</button>
           <button onClick={handleYesterday}>Yesterday</button>

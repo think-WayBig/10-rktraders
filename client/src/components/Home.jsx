@@ -155,8 +155,8 @@ function Home() {
       <div className='home-con'>
         <Link to="/orders">
           <div>
-            Check Orders
-            <span>Current: {vouchersPending.length}</span>
+            Pending Orders
+            <span>Pending: {vouchersPending.length}</span>
           </div>
         </Link>
         {/* <Link to="/new">
@@ -167,7 +167,7 @@ function Home() {
         <Link to="/archived">
           <div>
             Archived Orders
-            <span>Fulfilled: {vouchersArchived.length}</span>
+            <span>Delivered: {vouchersArchived.length}</span>
           </div>
         </Link>
         <div id='addBill' onClick={getFile}>
