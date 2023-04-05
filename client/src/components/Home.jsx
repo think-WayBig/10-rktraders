@@ -165,8 +165,13 @@ function Home() {
       setPopState(false);
     };
 
-    const handleOk = () => {
-      console.log('ok');
+    const handleOk = async () => {
+      let res = await axios.delete("https://data-api-rktraders.vercel.app/deleteAllVouchers", {
+        data: {
+          id: null
+        }
+      });
+      console.log(res);
       window.location.reload();
     }
 
