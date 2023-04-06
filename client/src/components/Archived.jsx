@@ -140,7 +140,7 @@ function Archived() {
       }
     }))
   }
-  
+
   return (
     <>
       <nav className='filters'>
@@ -168,7 +168,8 @@ function Archived() {
             state={voucher.State}
             price={voucher.TotalAmount}
             delivery={voucher.Driver}
-            remarks={voucher.Remarks}
+            remarks={voucher.Remarks || "N/A"}
+            deliveredOn={voucher.DeliveredOn || "N/A"}
           />)
         })}
       </div>

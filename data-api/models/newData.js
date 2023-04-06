@@ -49,6 +49,10 @@ const newData = new mongoose.Schema({
     Remarks: {
         type: String,
         default: 'NA'
+    },
+    DeliveredOn: {
+        type: String,
+        default: 'NA'
     }
 });
 

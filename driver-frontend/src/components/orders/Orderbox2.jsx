@@ -91,8 +91,15 @@ function Orderbox(props) {
       return;
     }
     if (otp == code) {
+      let date = new Date();
+      let options = {
+        weekday: "long", year: "numeric", month: "short",
+        day: "numeric", hour: "2-digit", minute: "2-digit"
+      };
+
       await axios.put("https://data-api-rktraders.vercel.app/verifyOrder/" + billId.replace('/', 'M'), {});
       await axios.put("https://data-api-rktraders.vercel.app/remarks/" + billId.replace('/', 'M'), { Remarks: remarks });
+      await axios.put("https://data-api-rktraders.vercel.app/deliveredOn/" + billId.replace('/', 'M'), { DeliveredOn: date.toLocaleTimeString("en-us", options) });
       await axios.put("https://data-api-rktraders.vercel.app/orders/" + billId.replace('/', 'M') + "/" + localStorage.getItem("rkid"), {});
       await axios.post("https://data-api-rktraders.vercel.app/sms", {
         VchNo: billId,
@@ -100,12 +107,6 @@ function Orderbox(props) {
         Message: otp + "\nOrder ID: " + props.id + "\nName: " + props.name + "\n" + "Amount: " + props.price,
         Contact: otpNum
       })
-
-      let date = new Date();
-      let options = {
-        weekday: "long", year: "numeric", month: "short",
-        day: "numeric", hour: "2-digit", minute: "2-digit"
-      };
 
       await sendWaMsg(otpNum, props.id, props.name, date.toLocaleTimeString("en-us", options), productsBought, props.price);
       alert("Successfully Verified!!")
