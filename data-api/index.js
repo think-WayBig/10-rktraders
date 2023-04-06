@@ -124,7 +124,7 @@ app.put('/remarks/:orderId', (req, res) => {
 app.put('/deliveredOn/:orderId', (req, res) => {
     let order = req.params.orderId;
     try {
-        NewData.findOneAndUpdate({ "VchNo": order.replace('M', '/') }, { "DeliveredAt": req.body.DeliveredAt }, null, (err, data) => {
+        NewData.findOneAndUpdate({ "VchNo": order.replace('M', '/') }, { "DeliveredOn": req.body.DeliveredOn }, null, (err, data) => {
             res.send({
                 Response: data,
                 OrderId: order.replace('M', '/')
