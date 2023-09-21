@@ -185,6 +185,32 @@ app.delete('/deleteVoucher', async (req, res) => {
     }
 });
 
+app.get('/pendingVouchers', async (req, res) => {
+    try {
+        let mongoRes = await NewData.find({ DeliveryStatus: "pending" });
+        res.json({ Response: mongoRes })
+    } catch (error) {
+        res.json({ message: error.message })
+    }
+})
+
+app.put('/orderSuccess', async (req, res) => {
+    let { order, Remarks, newDriver } = req.body;
+    try {
+        let mongoRes = await NewData.findOneAndUpdate({ "VchNo": order.replace('M', '/') }, {
+            "Remarks": Remarks,
+            "Driver": newDriver,
+            "DeliveryStatus": "success"
+        });
+        res.json({
+            Response: mongoRes,
+            OrderId: order.replace('M', '/')
+        })
+    } catch (err) {
+        res.send(err);
+    }
+})
+
 let PORT = 5000;
 
 app.listen(PORT, () => { console.log('API Running Successfully', `http://localhost:${PORT}`) });
