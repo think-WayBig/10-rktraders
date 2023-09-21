@@ -97,10 +97,11 @@ function Orderbox(props) {
         day: "numeric", hour: "2-digit", minute: "2-digit"
       };
 
-      await axios.put("https://data-api-rktraders.vercel.app/verifyOrder/" + billId.replace('/', 'M'), {});
-      await axios.put("https://data-api-rktraders.vercel.app/remarks/" + billId.replace('/', 'M'), { Remarks: remarks });
-      await axios.put("https://data-api-rktraders.vercel.app/deliveredOn/" + billId.replace('/', 'M'), { DeliveredOn: date.toLocaleTimeString("en-us", options) });
-      await axios.put("https://data-api-rktraders.vercel.app/orders/" + billId.replace('/', 'M') + "/" + localStorage.getItem("rkid"), {});
+      await axios.put("https://data-api-rktraders.vercel.app/orderSuccess/", {
+        Remarks: remarks,
+        Driver: localStorage.getItem("rkid"),
+        order: billId.replace('/', 'M')
+      });
       await axios.post("https://data-api-rktraders.vercel.app/sms", {
         VchNo: billId,
         Driver: driver,

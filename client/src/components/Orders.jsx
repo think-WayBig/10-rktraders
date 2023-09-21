@@ -9,18 +9,10 @@ function Orders() {
   let [vouchersFilter, setVouchersFilter] = useState([]);
 
   async function getAllVouchers() {
-    let response = await axios.get('https://data-api-rktraders.vercel.app/allVouchers')
+    let response = await axios.get('https://data-api-rktraders.vercel.app/pendingVouchers')
     let allVouchers = response.data;
-    setVouchers(allVouchers.filter(voucher => {
-      if (voucher.DeliveryStatus == "pending") {
-        return voucher;
-      }
-    }));
-    setVouchersFilter(allVouchers.filter(voucher => {
-      if (voucher.DeliveryStatus == "pending") {
-        return voucher;
-      }
-    }));
+    setVouchers(allVouchers);
+    setVouchersFilter(allVouchers);
   }
 
   function removeActive() {
