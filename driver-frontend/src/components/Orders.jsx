@@ -11,8 +11,8 @@ function Orders() {
   async function getAllVouchers() {
     let response = await axios.get('https://data-api-rktraders.vercel.app/pendingVouchers')
     let allVouchers = response.data;
-    setVouchers(allVouchers);
-    setVouchersFilter(allVouchers);
+    setVouchers(allVouchers.Response);
+    setVouchersFilter(allVouchers.Response);
   }
 
   function removeActive() {

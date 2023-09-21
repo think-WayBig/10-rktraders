@@ -20,11 +20,6 @@ function Home() {
   async function getAllVouchers() {
     let response = await axios.get('https://data-api-rktraders.vercel.app/allVouchers')
     let allVouchers = response.data;
-    setVouchersPending(allVouchers.filter(voucher => {
-      if (voucher.DeliveryStatus == "pending") {
-        return voucher;
-      }
-    }));
 
     setVouchersArchived(allVouchers.filter(voucher => {
       if (voucher.DeliveryStatus == "success") {
@@ -34,6 +29,12 @@ function Home() {
   }
 
   useEffect(() => {
+    let pendingOrders = async () => {
+      let pendingRes = await axios.get('https://data-api-rktraders.vercel.app/pendingVouchers');
+      let pendingVouchers = pendingRes.data;
+      setVouchersPending(pendingVouchers.Response);
+    }
+    pendingOrders();
     getAllVouchers();
   }, [])
 
